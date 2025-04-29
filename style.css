@@ -1,0 +1,591 @@
+@font-face {
+  font-family: "Inter";
+  src: url(./font/Inter/);
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url(./font/Merriweather/);
+}
+@font-face {
+  font-family: "Inter";
+  src: url(./font/Inter/);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  list-style: none;
+  text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url(./img/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+}
+
+@keyframes animbefore {
+  to {
+    opacity: 0;
+  }
+}
+
+body::before {
+  content:"";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: black;
+  animation: animbefore 1.5s ease forwards; /* forward = une fois que tu as fini ton animation sur reste sur la position final (donc ne revient pas à l'état initial*/
+  animation-delay: 0.15s;
+}
+
+@keyframes headerAnim {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+header {
+  width:85%;
+  Margin: 0 auto;
+  height: 100vh;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  opacity:0;
+  transform: translateY(40px);
+  animation: headerAnim 1.5s forwards;
+} 
+
+header h1 {
+  font-family: "Inter";
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgb(243, 242, 242);
+  letter-spacing: 10px;
+  margin-bottom: 50px;
+}
+
+header p {
+  font-family: "Merriweather";
+  font-size: 1rem;
+  font-weight: 550;
+  font-style: italic;
+  color: rgb(243, 242, 242);
+  margin-bottom: 50px;
+  font-size: 1.3rem;
+}
+header .icone-head {
+  text-align: center;
+}
+header .icone-head i {
+  color: rgb(243, 242, 242);
+  font-size: 1.3rem;
+  border: 2px solid rgb(243, 242, 242);
+  padding: 18px 20px 18px 20px;
+  border-radius: 120px;
+  margin-bottom: 150px;
+}
+
+nav {
+  display: flex;
+  justify-content:space-between;
+  width:100%;
+  background: rgba(255, 255, 255, 0.192);
+  z-index: 100; /*** pour être sur que la nav soit bien devant car a position va être en absolute */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
+
+nav ul {
+  display: flex;
+  align-items:center;
+}
+
+nav .navigation ul {
+  height: 60px;
+  justify-content: left;
+}
+
+nav .navigation ul li {
+  color: rgb(243, 242, 242);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 0 15px;
+  height: 100%; /* pour que si on clic un peu au-dessus de l'écriture cela soit quand même cliquable*/
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+nav .navigation ul li:hover {
+  background: rgb(230, 227, 227);
+  color: rgb(7, 7, 7);
+  transition: 0.2s;
+}
+
+.navigation:hover li:not(:hover){
+  background: none;
+  color: white;
+}
+
+nav .navigation ul #first-child {
+  background: rgb(230, 227, 227);
+  color: rgb(7, 7, 7);
+}
+
+nav .nav-icones {
+  min-width: 100px;
+  width:25%;
+  max-width: 300px;
+  margin-right:10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+nav .nav-icones li:hover {
+  transform: scale(1.3);
+  transition: 1s;
+}
+
+
+nav .nav-icones ul li a {
+  color: rgb(243, 242, 242);
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+/* ---------------------- MAIN -----------------------*/
+
+main {
+  width:85%;
+  Margin: 0 auto;
+  background: rgb(248, 248, 248);
+}
+
+main button {
+  display: block;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  padding: 15px 40px 15px 40px;
+  margin: 0 auto;
+  
+}
+
+main button:hover {
+  background:rgb(61, 60, 60);
+  color: white;
+  transition: 0.3s;
+}
+main .first-container {
+  display: block;
+  padding: 70px 0 50px 0;
+}
+.date{
+  display:block;
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.date h4 {
+  font-family: 'Merriweather';
+  font-size: 1.3rem;
+  font-weight:lighter;
+}
+
+.first-container .date:after {
+  content:"";
+  position: absolute;
+  height: 1px;
+  width: 33%;
+  background: rgba(199, 197, 197, 0.548);
+  top: 50%;
+  transform: translateY(-50%); /* translate de 50% de 1px --> inutil mais bonne pratique)*/
+  right: 0;
+}
+
+.first-container .date:before {
+  content:"";
+  position: absolute;
+  height: 1px;
+  width: 33%;
+  background: rgba(199, 197, 197, 0.548);
+  top:50%;
+  transform: translateY(-50%); /* translate de 50% de 1px --> inutil mais bonne pratique)*/
+  left:0;
+}
+
+main .first-container h2 {
+  padding-top: 70px;
+  text-transform: uppercase;
+  font-size: 4rem;
+  letter-spacing: 5px;
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+main .first-container p {
+  font-family: "Merriweather";
+  font-weight: lighter;
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  line-height: 45px;
+}
+
+main .first-container img {
+  width: 80%;
+  max-height: 700px;
+  margin-bottom: 60px;
+}
+
+
+main .first-container button {
+  margin-bottom: 50px;
+}
+
+main .second-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+main .date h5 {
+  font-family: 'Merriweather', sans-serif;
+  font-size: 1rem;
+  font-weight:lighter;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+main .second-container h3 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+main .second-container img {
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+main .second-container p {
+  width: 80%;
+  min-height:175px;
+  margin: 0 auto;
+  font-family: 'Merriweather', sans-serif;
+  line-height: 35px;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+main .second-container button {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+main .second-container .left-container {
+  border-top: 1px solid rgba(199, 197, 197, 0.548);
+  border-right: 1px solid rgba(199, 197, 197, 0.548);
+}
+
+
+main .second-container .right-container {
+  border-top: 1px solid rgba(199, 197, 197, 0.548);
+}
+
+
+/* ------------------ FOOTER ----------------*/
+
+footer {
+  width: 85%;
+  margin: 0 auto 70px;
+  background: whitesmoke;
+  margin-top: 40px;
+}
+
+footer .footer-left{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  
+}
+
+/********* FOOTER LEFT *******/
+
+footer .footer-left .infos {
+  display: grid;
+  gap: 18px;
+  grid-template-rows: 18px 45px 18px 45px 18px 200px 1fr;
+  padding-top: 50px;
+}
+
+footer .footer-left form #name {
+  width: 80%;
+  margin: 0 auto;
+  background: none;
+  border: 1px solid rgba(212, 210, 210, 0.658);
+  border-radius: 5px;
+}
+footer .footer-left form #email {
+  width: 80%;
+  margin: 0 auto;
+  background: none;
+  border: 1px solid rgba(212, 210, 210, 0.658);
+  border-radius: 5px;
+}
+
+footer .footer-left form #message {
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  background: none;
+  border: 1px solid rgba(212, 210, 210, 0.658);
+  border-radius: 5px;
+  resize: none;
+}
+
+
+footer .footer-left form label {
+  display: flex;
+  align-items: flex-end;
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: rgb(75, 74, 74);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+}
+
+footer .footer-left form .submit {
+  width: 80%;
+  margin: 0 auto;
+}
+
+footer .footer-left form .button {
+  display: flex;
+  justify-content: flex-end;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border: 2px solid rgba(100, 98, 98, 0.849);
+  color: rgba(100, 98, 98, 0.849);
+  padding: 15px 30px 15px 30px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+footer .footer-left form .button:hover {
+  background:rgb(61, 60, 60);
+  color: white;
+  transition: 0.3s;
+}
+
+/******* FOOTER RIGHT ********/
+
+footer .footer-right {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-areas: 
+  "al ar"
+  "pl pr"
+  "el er"
+  "sl sr";
+}
+
+footer .footer-right h4 {
+  margin-top: 65px;
+  font-family: 'Inter', sans-serif;
+  color: rgb(75, 74, 74);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+}
+
+footer .footer-right P {
+  margin-top: 58px;
+  font-family: 'Merriweather', sans-serif;
+  color: rgb(139, 136, 136);
+  letter-spacing: 0.2px;
+  line-height: 30px;
+  font-size: 0.75rem;
+  text-align: left;
+  padding-left:30px;
+  
+}
+
+footer .footer-right .adresse-left {
+  grid-area: al; 
+  border-bottom: 1px solid rgba(212, 210, 210, 0.658);
+  border-left: 1px solid rgba(212, 210, 210, 0.658);
+}
+
+
+footer .footer-right .adresse-right {
+  grid-area: ar;
+  border-bottom: 1px solid rgba(212, 210, 210, 0.658); 
+}
+
+footer .footer-right .phone-left {
+  grid-area: pl; 
+  border-bottom: 1px solid rgba(212, 210, 210, 0.658);
+  border-left: 1px solid rgba(212, 210, 210, 0.658);
+} 
+
+footer .footer-right .phone-right {
+  grid-area: pr; 
+  border-bottom: 1px solid rgba(212, 210, 210, 0.658);
+}
+
+footer .footer-right .email-left {
+  grid-area: el; 
+  border-bottom: 1px solid rgba(212, 210, 210, 0.658);
+  border-left: 1px solid rgba(212, 210, 210, 0.658);
+}
+
+footer .footer-right .email-right {
+  grid-area: er; 
+  border-bottom: 1px solid rgba(212, 210, 210, 0.658);
+}
+
+footer .footer-right .social-left {
+  grid-area: sl; 
+  border-left: 1px solid rgba(212, 210, 210, 0.658);
+  border-left: 1px solid rgba(212, 210, 210, 0.658);
+}
+
+footer .footer-right .social-right {
+  grid-area: sr; 
+ 
+}
+
+footer .footer-right .social-right ul{
+  display:flex;
+  justify-content: left;
+  color: rgb(139, 136, 136);
+}
+
+
+footer .footer-right .social-right li{
+  margin-top: 55px;
+  margin: 53px 10px 0 10px;
+  padding: 10px;
+  border: 1px solid rgba(212, 210, 210, 0.658);
+  border-radius: 70px;
+  
+}
+
+footer .footer-right .social-right li i {
+  color: rgb(61, 61, 61);
+}
+
+/********** MEDIA QUERIES ************/
+@media screen and (max-width: 1384px) {
+  main .first-container img{
+    height: 509px;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1184px) {
+  main .first-container img{
+    height: 459px;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 991px){
+  nav .nav-icones {
+    display: none;
+  }
+  
+  nav .navigation ul {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 893px) {
+
+  main .first-container h2 {
+    font-size: 3rem;
+  }
+  main .first-container img{
+    height: 325px;
+    width: 80%;
+  }
+
+  main .second-container {
+    display: block;
+  }
+
+  main .date h5 {
+    margin-top: 120px;
+  }
+
+  main .second-container .right-container {
+    border-top: none;
+  }
+
+  main .second-container {
+    padding-bottom: 50px;
+  }
+
+  footer .footer-left {
+    display: block;
+  }
+}
+
+
+
+ 
+
